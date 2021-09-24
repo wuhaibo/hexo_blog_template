@@ -1,6 +1,11 @@
-# Building a Blog System Based on Hexo, Gitlab CI/CD and Netlify
+
 # Introduction
-Hexo is a fast, simple and powerful blog framework. There are plenty of plugins and beautiful themes.
+Hexo is a fast, simple and powerful blog framework. 
+There are plenty of plugins and beautiful themes that could be used to customerize personal blog and most importantly, you could write posts using markdown. 
+
+However, since hexo is actually a static website generator, there is no user interface to edit the posts like word press, you have to 'develop' your posts rather than to write your posts.  
+
+Our target here is to integrate the netlify-cms to hexo, which enables the word press posts writting experience while keeping all benefits from hexo.
 
     
 
@@ -8,14 +13,14 @@ Hexo is a fast, simple and powerful blog framework. There are plenty of plugins 
 ## Step 1: Download Code Template
 
 ```bash
-git clone 
+git clone https://github.com/wuhaibo/hexo_blog_template.git
 ```
 
 ## Step 2: Create Repo in Gitlab and Upload the code From Step 1 to Gitlab Repo
 
 Note: remove the .git folder in code folder from step 1.
 
-## Create a Site for Hosting in Netlify
+## Step 3: Create a Site for Hosting in Netlify
 - Sign in Netlify using Gitlab Credentials.
 - Create a Site: New site from git -> choose the repo we created in Step 2. 
 - Create User for netlify CMS 
@@ -34,7 +39,7 @@ Note: remove the .git folder in code folder from step 1.
 
 
 
-## Step3: Setup Gitlab CI/CD
+## Step4: Setup Gitlab CI/CD
 - Open the repo on Gitlab and go to Settings -> CI/CD
 - Add the API ID from last step under the variable name NETLIFY_SITE_ID 
 - Add the access token got from last step under the variable name NETLIFY_AUTH_TOKEN
@@ -66,4 +71,7 @@ deploy:
 - push the changes to gitlab and validate.
 
 
-  
+
+## Step 5: Adding new Post
+go to http://your_site_name.netlify.app/admin
+login with the user created in step 3. Then you could add new posts. 
